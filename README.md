@@ -4,7 +4,8 @@
 ================================================================================
 
 ★これは何？
-　Juliaとgccの速度を比較したコード群です。含まれているコードのファイルのうち、calc_gcc_tbb.cppのコンパイルには、以下のライブラリが必要です。
+　Juliaとgccの速度を比較したコード群です。含まれているコードのファイルのうち、
+　calc_gcc_tbb.cppのコンパイルには、以下のライブラリが必要です。
 　・oneAPI Threading Building Blocks (oneTBB)
 　
 ★更新履歴
@@ -60,5 +61,6 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------------
 
-　parallelquicksortにはIntel CorporationによるoneAPI Threading Building Blocks(oneTBB)を使用しています。
+　parallelquicksortにはIntel CorporationによるoneAPI Threading Building
+　Blocks(oneTBB)を使用しています。
   こちらのライセンスは Apache License 2.0 になります。
