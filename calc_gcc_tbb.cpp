@@ -14,26 +14,24 @@ int main()
     std::cout << std::setiosflags(std::ios::fixed) << std::setprecision(6);
     
     auto beg = high_resolution_clock::now();
-    auto const total = calc_gcc_tbb();
+    auto total = calc_gcc_tbb();
     auto end = high_resolution_clock::now();
     auto elapsed_time = (duration_cast<duration<double>>(end - beg)).count();
     std::cout << elapsed_time << " seconds\n";
 
     beg = high_resolution_clock::now();
-    auto const total2 = calc_gcc_tbb();
+    total = calc_gcc_tbb();
     end = high_resolution_clock::now();
     elapsed_time = (duration_cast<duration<double>>(end - beg)).count();
     std::cout << elapsed_time << " seconds\n";
     
     beg = high_resolution_clock::now();
-    auto const total3 = calc_gcc_tbb();
+    total = calc_gcc_tbb();
     end = high_resolution_clock::now();
     elapsed_time = (duration_cast<duration<double>>(end - beg)).count();
     std::cout << elapsed_time << " seconds\n";
 
     std::cout << "total = " << total << std::endl;
-    std::cout << "total = " << total2 << std::endl;
-    std::cout << "total = " << total3 << std::endl;
 }
 
 std::int64_t calc_gcc_tbb()
@@ -41,7 +39,7 @@ std::int64_t calc_gcc_tbb()
     tbb::combinable<std::int64_t> total;
 
     tbb::parallel_for(
-            tbb::blocked_range<std::int64_t>(1LL, 10001LL),
+            tbb::blocked_range<std::int64_t>(1LL, 100001LL),
             [&total](tbb::blocked_range<std::int64_t> const & range) {
                 for (auto && i = range.begin(); i != range.end(); ++i) {
                     for (auto j = 1LL; j <= 10000; j++) {
