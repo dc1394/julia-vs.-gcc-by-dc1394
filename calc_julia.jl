@@ -2,23 +2,24 @@ using Printf
 @show VERSION
 
 function calc_julia()
-    tmp = 0
     total = 0
+
     for i in 1:10^5
         for j in 1:10^4
-            if j % 4 == 0
-                tmp = i + j
-            elseif j % 4 == 1
-                tmp = i - j
-            elseif j % 4 == 2
-                tmp = i * j
-            else
-                tmp = i ÷ j
-            end
+            tmp = if j % 4 == 0
+                     i + j
+                  elseif j % 4 == 1
+                     i - j
+                  elseif j % 4 == 2
+                     i * j
+                  else
+                    i ÷ j
+                  end
             total += tmp
         end
     end
-    total
+    
+    return total
 end
 
 println()

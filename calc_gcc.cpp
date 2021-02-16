@@ -37,7 +37,7 @@ std::int64_t calc_gcc()
     auto tmp = 0LL;
     auto total = 0LL;
 
-    for (auto i = 1LL; i <= 100000; i++) {
+    for (auto i = 1LL; i <= 1000000; i++) {
         for (auto j = 1LL; j <= 10000; j++) {
             if (!(j % 4)) {
                 tmp = i + j;
