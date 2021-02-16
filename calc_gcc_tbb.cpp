@@ -42,6 +42,7 @@ std::int64_t calc_gcc_tbb()
             tbb::blocked_range<std::int64_t>(1LL, 100001LL),
             [&total](auto const & range) {
                 for (auto && i = range.begin(); i != range.end(); ++i) {
+                    auto tmp2 = 0LL;
                     for (auto j = 1LL; j <= 10000; j++) {
                         std::int64_t tmp;
 
@@ -55,8 +56,9 @@ std::int64_t calc_gcc_tbb()
                             tmp = i / j;
                         }
                         
-                        total.local() += tmp;
+                        tmp2 += tmp;
                     }
+                    total.local() += tmp2;
                 }
             });
     return total.combine(std::plus<>());
