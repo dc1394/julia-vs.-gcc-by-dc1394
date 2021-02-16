@@ -1,7 +1,7 @@
 using Distributed
 using Printf
 @show VERSION
-addprocs()
+addprocs(36)
 
 function calc_julia_distributed()
     total = @distributed (+) for i in 1:10^5
